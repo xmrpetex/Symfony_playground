@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="welcome_image_product" style="background-image: url('{{product.image}}')">
+    </div>
+    <div class="company_info">
+        <h2>{{ product.name }}</h2>
+        <h3>{{ product.teaser }}</h3>
+        {{ product.description }}
+    </div>
+{% endblock %}
+

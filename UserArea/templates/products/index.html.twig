@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="product_gallery">
+        <h1>Products</h1>
+        <h2>
+            {% if message is defined %}
+                {{message}}
+            {% endif %}
+        </h2>
+        <ul class="product_list">
+            {% if products is defined %}
+            {% for product in products %}
+                <li>
+                    <div class="product_image"
+                         style="background: url('{{product.image}}');">
+                    </div>
+                    <h2>{{product.name}}</h2>
+                    <p>{{product.teaser}}</p>
+                    <a href="./products/show/{{ product.id }}">Details</a>
+                </li>
+            {% endfor %}
+            {% else %}
+            <h2>No Products to show</h2>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="company_info">
+        <h2>Why choose Pied Piper</h2>
+        Once launched, our AI will keep learning to break more and more sophisticated parameters.
+        Ultimately, this will mean the end of privacy. Electrical grids, financial institutions, the nuclear launch codes for every single nuclear weapon.
+        All will be exposed. Pure violence will become the only basis of power.
+    </div>
+{% endblock %}

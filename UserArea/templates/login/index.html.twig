@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="login_wrapper">
+        <form action="{{ path('app_login') }}" method="post">
+            <div class="logo">
+                <i class="fa-brands fa-pied-piper-square"></i>
+                <h1>Pied Piper</h1>
+            </div>
+            <ul class="login_elements_list">
+                <li>
+                    <input placeholder="E-Mail" type="text" id="username" name="_username" value="{{ lastUserName }}"/>
+                </li>
+                <li>
+                    <input placeholder="Password" type="password" id="password" name="_password"/>
+                </li>
+                <li>
+                    <button type="submit">login</button>
+                </li>
+            </ul>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="hidden" name="_target_path" value="/account"/>
+            <a href="../register">Register</a>
+
+        </form>
+    </div>
+{% endblock %}

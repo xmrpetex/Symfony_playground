@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Product{% endblock %}
+
+{% block body %}
+    <div class="login_wrapper">
+        <div class="logo">
+            <i class="fa-brands fa-pied-piper-square"></i>
+            <h1>Pied Piper</h1>
+        </div>
+        <h1>Add Product</h1>
+
+        {% if result is defined %}
+            <div class="info">
+                {{ result }}
+            </div>
+        {% endif %}
+
+        {{ form_start(productForm) }}
+        {{ form_row(productForm.name, {'label':false}) }}
+        {{ form_row(productForm.teaser, {'label':false}) }}
+        {{ form_row(productForm.description, {'label':false}) }}
+        {{ form_row(productForm.image, {'label':false})  }}
+        <button type="submit" class="btn">Add Product</button>
+        {{ form_end(productForm) }}
+    </div>
+{% endblock %}

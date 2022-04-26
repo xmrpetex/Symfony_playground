@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="menu_wrapper">
+        <ul class="menu_list">
+            {% for menuItem in menu %}
+                <li>
+                    <a href="/{{menuItem}}">
+                        <i class="fa-brands fa-pied-piper"></i>
+                        <p>{{menuItem}}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
